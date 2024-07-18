@@ -1,2 +1,21 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import Markdown from '$lib/components/Markdown.svelte'
+
+  export let data
+</script>
+
+<div>
+  {#each data.entries as entry}
+    <details>
+      <summary>
+        <strong>{entry.fields.headline}</strong>
+      </summary>
+
+      <Markdown content={entry.fields.details} />
+    </details>
+  {/each}
+</div>
+
+<style>
+  /* nothing */
+</style>
