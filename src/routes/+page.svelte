@@ -2,10 +2,15 @@
   import Markdown from '$lib/components/Markdown.svelte'
 
   export let data
+
+  const entries = data.entries
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
 </script>
 
 <div>
-  {#each data.entries as entry}
+  {#each entries as entry}
     <details>
       <summary>
         <strong>{entry.fields.headline}</strong>

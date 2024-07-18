@@ -14,12 +14,7 @@ export async function load() {
   })
 
   if (response) {
-    const entries = response.items
-      .map(value => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value)
-
-    return { entries }
+    return { entries: response.items }
   }
 
   error(404, 'Not found')
