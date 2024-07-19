@@ -1,3 +1,5 @@
+const adapter = require('gatsby-adapter-netlify')
+
 // Add variables from the .env file to process
 require('dotenv').config({
   path: `.env`,
@@ -9,11 +11,6 @@ const isBuild = process.env.gatsby_executing_command === 'build'
 const isNetlify = process.env.NETLIFY === 'true'
 
 console.log(`\x1b[2m✲ Running ${isNetlify ? 'on Netlify' : 'locally'} in ${isDev || !isBuild ? 'develop' : 'build'} mode\x1b[0m`)
-
-// Pull in the adapter if necessary
-if (isNetlify) {
-  const adapter = require('gatsby-adapter-netlify')
-}
 
 // Set site URL based on build situation
 const siteUrl = isNetlify
