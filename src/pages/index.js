@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import Card from '@components/card'
+import ExternalLink from '@components/external-link'
 
 const IndexPage = ({
   data: {
@@ -40,8 +41,10 @@ const IndexPage = ({
         {entries.map((entry) => <Card key={entry.id} {...entry} />)}
       </div>
 
+      <div className="text-lg font-light">In recent weeks, more awareness is being brought to <ExternalLink href="https://en.wikipedia.org/wiki/Agenda_47" label="Agenda 47" />. Make sure to check that out, as well!</div>
+
       <div className="flex gap-2 items-center">
-        <span><a href="https://github.com/michaelvcolianna/project2025sayswhat.com" rel="noopner noreferrer" className="text-blue-700 underline font-semibold">Source Code</a></span>
+        <span><ExternalLink href="https://github.com/michaelvcolianna/project2025sayswhat.com" label="Source Code" /></span>
       </div>
     </div>
   )
