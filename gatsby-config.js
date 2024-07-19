@@ -10,8 +10,6 @@ const isDev = process.env.gatsby_executing_command === 'develop'
 const isBuild = process.env.gatsby_executing_command === 'build'
 const isNetlify = process.env.NETLIFY === 'true'
 
-console.log(`\x1b[2m✲ ${isDev ? 'Running' : 'Building'} ${isNetlify ? 'on Netlify' : 'locally'}\x1b[0m`)
-
 // Set site URL based on build situation
 const siteUrl = isNetlify
   ? 'https://project2025sayswhat.com'
