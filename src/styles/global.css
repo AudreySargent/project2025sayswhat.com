@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  .markdown blockquote {
-    @apply border-l-2 pl-4;
+  .rich-text blockquote {
+    @apply border-l-2 pl-4 grid gap-4;
   }
 }
