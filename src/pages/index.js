@@ -41,8 +41,6 @@ const IndexPage = ({
       </div>
 
       <div className="flex gap-2 items-center">
-        {/* <span>Based on an idea by <a href="https://bsky.app/profile/clpolk.com" rel="noopener noreferrer" className="text-blue-700 underline font-semibold">C.L. Polk</a></span>
-        <span className="font-bold">|</span> */}
         <span><a href="https://github.com/michaelvcolianna/project2025sayswhat.com" rel="noopner noreferrer" className="text-blue-700 underline font-semibold">Source Code</a></span>
       </div>
     </div>
