@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  .rich-text a {
+    @apply font-semibold text-blue-700 underline;
+  }
+
   .rich-text blockquote {
     @apply border-l-2 pl-4 grid gap-4;
   }
