@@ -1,4 +1,4 @@
-const adapter = require('gatsby-adapter-netlify')
+const adapter = require('gatsby-adapter-netlify').default
 
 // Add variables from the .env file to process
 require('dotenv').config({
@@ -10,7 +10,7 @@ const isDev = process.env.gatsby_executing_command === 'develop'
 const isBuild = process.env.gatsby_executing_command === 'build'
 const isNetlify = process.env.NETLIFY === 'true'
 
-console.log(`\x1b[2m✲ Running ${isNetlify ? 'on Netlify' : 'locally'} in ${isDev || !isBuild ? 'develop' : 'build'} mode\x1b[0m`)
+console.log(`\x1b[2m✲ ${isDev ? 'Running' : 'Building'} ${isNetlify ? 'on Netlify' : 'locally'}\x1b[0m`)
 
 // Set site URL based on build situation
 const siteUrl = isNetlify
@@ -32,7 +32,14 @@ if (!ctfSpaceId || !ctfAccessToken) {
   throw new Error(`Missing environment variables needed for Contentful (CONTENTFUL_SPACE_ID and/or CONTENTFUL_${isDev ? 'PREVIEW' : 'DELIVERY'}_TOKEN`)
 }
 
-const baseConfig = {
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
+module.exports = {
+  adapter: adapter({
+    excludeDatastoreFromEngineFunction: false,
+    imageCDN: false,
+  }),
   siteMetadata: {
     siteUrl,
   },
@@ -51,16 +58,3 @@ const baseConfig = {
     },
   ],
 }
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = isNetlify
-  ? {
-    adapter: adapter({
-      excludeDatastoreFromEngineFunction: false,
-      imageCDN: false,
-    }),
-    ...baseConfig,
-  }
-  : baseConfig
