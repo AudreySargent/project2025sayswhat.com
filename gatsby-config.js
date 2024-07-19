@@ -32,16 +32,7 @@ if (!ctfSpaceId || !ctfAccessToken) {
   throw new Error(`Missing environment variables needed for Contentful (CONTENTFUL_SPACE_ID and/or CONTENTFUL_${isDev ? 'PREVIEW' : 'DELIVERY'}_TOKEN`)
 }
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
-  adapter: isNetlify
-    ? adapter({
-      excludeDatastoreFromEngineFunction: false,
-      imageCDN: false,
-    })
-    : null,
+const baseConfig = {
   siteMetadata: {
     siteUrl,
   },
@@ -60,3 +51,16 @@ module.exports = {
     },
   ],
 }
+
+/**
+ * @type {import('gatsby').GatsbyConfig}
+ */
+module.exports = isNetlify
+  ? {
+    adapter: adapter({
+      excludeDatastoreFromEngineFunction: false,
+      imageCDN: false,
+    }),
+    ...baseConfig,
+  }
+  : baseConfig
