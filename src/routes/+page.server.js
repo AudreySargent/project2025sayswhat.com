@@ -11,6 +11,7 @@ export async function load() {
 
   const response = await client.getEntries({
     content_type: 'section',
+    order: '-sys.createdAt',
   })
 
   if (response) {

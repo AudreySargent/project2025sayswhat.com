@@ -10,12 +10,12 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: process.env.NODE_ENV === 'development'
 			? (() => {
-				console.log(`\x1b[2m\x1b[32m*** Using static adapter ***\x1b[0m`)
+				console.log(`\x1b[2m\x1b[32m*** Using static adapter ***\x1b[0m`, process.env)
 
 				return adapterStatic({})
 			})()
 			: (() => {
-				console.log(`\x1b[2m\x1b[32m*** Using Netlify adapter ***\x1b[0m`)
+				console.log(`\x1b[2m\x1b[32m*** Using Netlify adapter ***\x1b[0m`, process.env)
 
 				return adapterNetlify({})
 			})(),
