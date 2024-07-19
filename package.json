@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "gatsby": "^5.13.5",
+    "gatsby-adapter-netlify": "^1.1.7",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-source-contentful": "^8.13.2",

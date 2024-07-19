@@ -8,6 +8,13 @@ const isDev = process.env.gatsby_executing_command === 'develop'
 const isBuild = process.env.gatsby_executing_command === 'build'
 const isNetlify = process.env.NETLIFY === 'true'
 
+console.log(`\x1b[2m✲ Running ${isNetlify ? 'on Netlify' : 'locally'} in ${isDev || !isBuild ? 'develop' : 'build'} mode\x1b[0m`)
+
+// Pull in the adapter if necessary
+if (isNetlify) {
+  const adapter = require('gatsby-adapter-netlify')
+}
+
 // Set site URL based on build situation
 const siteUrl = isNetlify
   ? 'https://project2025sayswhat.com'
@@ -32,6 +39,12 @@ if (!ctfSpaceId || !ctfAccessToken) {
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  adapter: isNetlify
+    ? adapter({
+      excludeDatastoreFromEngineFunction: false,
+      imageCDN: false,
+    })
+    : null,
   siteMetadata: {
     siteUrl,
   },
@@ -48,5 +61,5 @@ module.exports = {
         host: ctfHost,
       }
     },
-  ]
+  ],
 }
