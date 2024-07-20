@@ -30,10 +30,10 @@ const IndexPage = ({
   }
 
   return (
-    <div className="grid gap-4 p-4">
+    <div className="font-sans grid gap-4 p-4">
       <div className="italic text-lg">This is a huge work in progress. Appearance and content may change frequently.</div>
 
-      <div className="text-4xl font-bold">Project 2025 Says What?</div>
+      <div className="font-serif text-5xl">Project 2025 Says What?</div>
 
       <div>Project 2025 rushed into the news recently, and a lot of people have been talking about it - but what does it actually say? Below is a list of summaries about divisive topics, and what Project 2025 has to say about each one. <span className="italic">(Note: Links do not open in new windows/tabs.)</span></div>
 

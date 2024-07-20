@@ -12,7 +12,7 @@ const Card = ({
   return (
     <details className="group p-4">
       <summary className="flex gap-4 justify-between items-center font-medium cursor-pointer list-none">
-        <strong className="text-xl">{headline}</strong>
+        <span className="font-serif font-bold text-xl">{headline}</span>
         <span className="group-open:rotate-180">
           <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
         </span>
