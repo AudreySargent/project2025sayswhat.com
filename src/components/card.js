@@ -18,7 +18,7 @@ const Card = ({
         </span>
       </summary>
 
-      <div className="mt-3 grid gap-8 lg:grid-cols-2 lg:items-start">
+      <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:items-start">
         <RichText content={details} />
 
         <div className="grid gap-4">
