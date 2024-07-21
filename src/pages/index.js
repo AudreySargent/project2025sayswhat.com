@@ -14,7 +14,9 @@ const IndexPage = ({
   const entries = nodes
     .map((node) => ({
       id: node.id,
+      categories: node.category.map((category) => category.name).sort(),
       headline: node.headline.headline,
+      summary: node.summary.summary,
       details: node.details,
       explanation: node.explanation,
       source: node.source,
@@ -42,9 +44,13 @@ const IndexPage = ({
         </div>
       </div>
 
-      <div className="grid divide-y">
-        {entries.map((entry) => <Card key={entry.id} {...entry} />)}
-      </div>
+      <section class="border-y border-zinc-800">
+        <div class="py-12 max-w-screen-xl mx-auto px-8 md:px-12">
+          <div class="divide-y divide-zinc-900 mx-auto">
+            {entries.map((entry) => <Card key={entry.id} {...entry} />)}
+          </div>
+        </div>
+      </section>
 
       <footer className="border-t">
         <div className="px-8 py-12 mx-auto md:px-12 max-w-screen-xl lg:py-12">
@@ -82,8 +88,15 @@ export const query = graphql`{
   ) {
     nodes {
       id
+      category {
+        id
+        name
+      }
       headline {
         headline
+      }
+      summary {
+        summary
       }
       details {
         raw

@@ -32,6 +32,10 @@
     @apply bg-zinc-50 text-zinc-950 font-sans;
   }
 
+  details summary::-webkit-details-marker {
+    @apply hidden;
+  }
+
   .rich-text a {
     @apply font-semibold text-blue-700 underline;
   }
