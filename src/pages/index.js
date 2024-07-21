@@ -44,9 +44,9 @@ const IndexPage = ({
         </div>
       </div>
 
-      <section class="border-y border-zinc-800">
-        <div class="py-12 max-w-screen-xl mx-auto px-8 md:px-12">
-          <div class="divide-y divide-zinc-900 mx-auto">
+      <section className="border-y border-zinc-800">
+        <div className="py-12 max-w-screen-xl mx-auto px-8 md:px-12">
+          <div className="divide-y divide-zinc-900 mx-auto">
             {entries.map((entry) => <Card key={entry.id} {...entry} />)}
           </div>
         </div>
@@ -132,9 +132,9 @@ export const Head = ({
       <meta name="title" content="Project 2025 Says What?" />
       <meta property="og:title" content="Project 2025 Says What?" />
       <meta name="twitter:title" content="Project 2025 Says What?" />
-      <meta name="description" content="Project 2025 rushed into the news recently, and a lot of people have been talking about it - but what does it actually say?" />
-      <meta property="og:description" content="Project 2025 rushed into the news recently, and a lot of people have been talking about it - but what does it actually say?" />
-      <meta name="twitter:description" content="Project 2025 rushed into the news recently, and a lot of people have been talking about it - but what does it actually say?" />
+      <meta name="description" content="Summaries of Project 2025's goals for important topics from agriculture to social justice." />
+      <meta property="og:description" content="Summaries of Project 2025's goals for important topics from agriculture to social justice." />
+      <meta name="twitter:description" content="Summaries of Project 2025's goals for important topics from agriculture to social justice." />
       <meta name="image" content={cardSrc} />
       <meta property="og:image" content={cardSrc} />
       <meta name="twitter:image" content={cardSrc} />
